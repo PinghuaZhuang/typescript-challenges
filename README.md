@@ -1,6 +1,6 @@
 # typescript-challenges
 
-> 学习 `ts`.
+> 学习|复习 `ts`.
 
 基础了解: https://www.yuque.com/niweixiaoshihaomei/rs7g75/tznp6w
 
