@@ -29,3 +29,11 @@ type EqualA = (<T>() => T extends false ? 1 : 2) extends (<T>() => T extends boo
 type FnA = ((a: string) => string) extends ((a: string) => string) ? true : false; // true
 type FnB = ((a: string, b: number) => string) extends ((a: string) => string) ? true : false; // false
 type FnC = ((a: string) => string) extends ((a: string, b: number) => string) ? true : false; // true
+
+type IsEqual<A, B> = [A, B] extends [B, A] ? true : false
+type A9 = IsEqual<any, string> // true
+type A10 = IsEqual< { name: string }, { readonly name: string }> // true
+type A101 = [{ name: string }, { readonly name: string }]
+// readonly 不会改变 assignable(extends 的结果)
+type A102 = [{ readonly name: string }, { name: string }]
+type IsEqualRet = A101 extends A102 ? true : false;
