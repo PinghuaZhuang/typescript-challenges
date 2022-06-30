@@ -7,15 +7,12 @@ type Includes2<T extends readonly any[], U> = {
   ? false
   : true;
 
-// 递归
-type Includes<T extends unknown[], U> = T extends [infer first, ...infer rest]
-  ? Equal<first, U> extends true
-    ? true
-    : Includes<rest, U>
-  : false
-
-type isPillarMen1 = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Dio'> // expected to be `false`
-type isPillarMen2 = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Santana'> // expected to be `true`
+// // 递归
+// type Includes<T extends unknown[], U> = T extends [infer first, ...infer rest]
+//   ? Equal<first, U> extends true
+//     ? true
+//     : Includes<rest, U>
+//   : false
 
 // 任何类型都可以分配给any, any也可以分配给任何数
 let a: string;
@@ -37,3 +34,18 @@ type A101 = [{ name: string }, { readonly name: string }]
 // readonly 不会改变 assignable(extends 的结果)
 type A102 = [{ readonly name: string }, { name: string }]
 type IsEqualRet = A101 extends A102 ? true : false;
+
+// 复习
+type Includes<T extends unknown[], U> = T extends [infer first, ...infer rest]
+  ? (Equal<first, U> extends true ? true : Includes<rest, U>)
+  : false
+
+// 验证
+type isPillarMen1 = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Dio'> // expected to be `false`
+type isPillarMen2 = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Santana'> // expected to be `true`
+
+type Equals<X, Y> = [X, Y] extends [Y, X] ? true : false;
+type A8 = Equals<boolean, false>; // false
+
+type IsEqual2<A, B> = B extends A ? true : false;
+type A1 = IsEqual2<true, boolean>; // boolean
