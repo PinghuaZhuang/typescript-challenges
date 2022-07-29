@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "utility-types": "^3.10.0"
+  },
+  "name": "typescript-challenges",
+  "description": "> 学习|复习 `ts`.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PinghuaZhuang/typescript-challenges.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PinghuaZhuang/typescript-challenges/issues"
+  },
+  "homepage": "https://github.com/PinghuaZhuang/typescript-challenges#readme"
+}

@@ -1,3 +1,5 @@
+import { $Values } from 'utility-types';
+
 const pickOrigin = {
   name: 'name',
   age: 'age',
@@ -11,3 +13,5 @@ const retPick: MyPick<typeof pickOrigin, 'name'> = {
   name: 'hah',
   // age: 'age',
 }
+
+const letters = `AB`;
