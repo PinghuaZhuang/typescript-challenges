@@ -47,3 +47,7 @@ type MyOmit<T, U> = {
 type test1 = ('description' | 'title') extends 'title' ? true : false // false
 type test2 = 'title' extends ('description' | 'title') ? true : false // true
 type test3 = Todo extends { title: string } ? true : false;
+
+type MyOmit3<T, K> = {
+  [P in keyof K]: K[P] extends T ? never : K[P];
+};
